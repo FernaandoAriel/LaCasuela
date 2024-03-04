@@ -61,3 +61,25 @@ input::placeholder {
     transition-duration: 0.6s;
     overflow: hidden;
 }
+
+#Enviarbtn:hover {
+    transition-duration: 0.6s; 
+    box-shadow: 0 1px 30px #ff2424; 
+}
+
+
+#Enviarbtn::before {
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 50px;
+    height: 100%; 
+    background: rgba(216, 5, 5, 0.5); 
+    transform: skew(45deg) translateX(150px);
+    transition-duration: 0.6s;
+}
+
+#Enviarbtn:hover::before {
+    transform: skewX(45deg) translateX(-150px);
+}
