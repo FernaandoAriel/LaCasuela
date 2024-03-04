@@ -4,8 +4,8 @@
 }
 
 body {
-    font-family: sans-serif;
-    background-color: rgb(20, 20, 20);
+    font-family: 'Cinzel Decorative', sans-serif;
+    background: linear-gradient(to bottom, rgb(20, 20, 20, 1) 10%, rgba(20, 20, 20, 1) 100%);
     margin: 0;
     padding: 0;
 }
@@ -15,7 +15,24 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 95vh;
+    height: 101.5vh;
+    overflow: hidden;
+}
+
+.imagen {
+    max-width: 100%;
+    height: auto;
+    opacity: 1; /* Ajusta la opacidad según tus necesidades */
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 200px; /* Ajusta la altura del degradado según tus necesidades */
+    background: linear-gradient(to bottom, rgba(240, 240, 240, 0) 10%, rgba(20, 20, 20, 1) 100%);
 }
 
 .nav{
@@ -33,7 +50,7 @@ body {
 
 .logo {
     line-height: 4  0px;
-    margin: 0;
+    margin-left: 100px;
 }
 
 .nav-menu{
@@ -42,8 +59,9 @@ body {
 }
 
 .nav-menu-item{
+    font-weight: 600;
     font-size: 18px;
-    margin: 0 10px;
+    margin: 0px;
     line-height: 90px;
     text-transform: uppercase;  
 }
@@ -59,40 +77,112 @@ body {
     color: rgb(0, 0, 0);
 }
 
+.nav-menu-item:not(:last-child) {
+    
+    border-right: 3px solid red;
+    height: 95px;
+}
+
+
 
 .container{
-    margin: 30px 0px 30px 0px;
-    background-color: rgb(43, 43, 43);
+    margin: 30px 0px;
+    background-color: rgb(231, 231, 231);
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    color: white;
-    padding: 0px 0px 20px 20px;
+    color: rgb(41, 41, 41);
+    padding: 0px 20px 20px 20px;
 }
 
 .container img{
-    max-width: 50%;
+    max-width: 30%;
     height: auto;
 }
 
 .container p {
     margin-bottom: 10px;
+
 }
 
-img{
-    width: 20%;
-}
-
-.row {
+.grid-item {
     display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background-color: #03afff;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .grid-item:hover {
+    filter: opacity(0.9);
+    transform: scale(1.04);
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    gap: 20px;
+    margin: 100px;
+    padding: 20px;
+    grid-auto-flow: dense;
+  }
+  
+  @media (min-width: 600px) {
+    .wide {
+      grid-column: span 2;
+    }
+  
+    .tall {
+      grid-row: span 2;
+    }
+  }
+
+  .cuadro {
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    display: flex;
+    border-style:none;
+    overflow: hidden;
+    max-width: 600px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: 20px auto;
 }
 
-.column{
-    flex: 25%;
-    padding: 5px
+.contenido {
+
+    margin-left: 50px;
+    flex: 1;
+    padding: 20px;
 }
 
-.column img{
-    margin-top: 5px;
+.imagen2 {
+    flex: 1;
+    background: url('https://cdnx.jumpseller.com/espesales/image/16285686/CLASE_A%CC%81RABE.png.png?1619905879') center/cover; /* Ajusta la imagen de fondo */
+    background-size: cover;
+    background-position: center;    
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+    min-width: 0; /* Evita que la imagen rompa el diseño */
 }
 
+button {
+    font-family: 'Cinzel Decorative', sans-serif;
+    font-weight: 600;
+    margin: 20px;
+    padding: 10px;
+    background-color: #da0b0b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    transition: 0.2s;
+    background-color: #c51717;
+    transform: scale(1.04);
+}
