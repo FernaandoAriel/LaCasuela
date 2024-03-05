@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva de Mesas</title>
+  <!-- Incluir SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <!-- Incluir SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Incluir Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    /* Estilos adicionales para la barra lateral */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #f8f9fa; /* Cambiar el color de fondo según tu preferencia */
+      padding: 20px;
+      overflow-y: auto; /* Habilitar el desplazamiento vertical si el contenido es más largo */
+    }
+
+    .navbar-nav .nav-link {
+      margin-bottom: 20px; /* Espacio entre los enlaces en la barra lateral */
+    }
+
+    /* Estilos para los botones de las mesas */
+    .mesa-buttons {
+      position: fixed;
+      top: 0;
+      right: 20px;
+      bottom: 0;
+      width: 1100px; /* Ancho fijo para las tarjetas de las mesas */
+      padding-top: 20px; /* Espacio superior para alinear con la barra lateral */
+      overflow-y: auto; /* Habilitar el desplazamiento vertical si hay muchas mesas */
+    }
+
+    .mesa-card {
+      margin-bottom: 10px;
+    }
+
+    .mesa-card .card-img-top {
+    height: 200px; /* Cambia este valor según tus preferencias */
+    object-fit: cover; /* Ajustar la imagen para llenar el contenedor sin deformarla */
+
+  }
+  </style>
+</head>
+<body>
+
+<!-- Contenido principal -->
+<div class="container-fluid">
+  <div class="row">
+    <!-- Barra lateral con las sucursales -->
+    <div class="col-lg-3 bg-light sidebar">
+      <nav class="navbar navbar-light flex-column">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="seleccionarSucursal(1)">Sucursal 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="seleccionarSucursal(2)">Sucursal 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="seleccionarSucursal(3)">Sucursal 3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="seleccionarSucursal(4)">Sucursal 4</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="seleccionarSucursal(5)">Sucursal 5</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Contenido principal -->
+    
+  </div>
+</div>
+
+<!-- Botones de las mesas -->
+<div class="mesa-buttons">
+  <div class="container">
+    <div class="row">
+        <h2>.........................Mesas de la primera planta (LADO A)............................................                                                         </h2>
+      <div class="col-md-4">
+        <div class="card mesa-card">
+          <img src="https://sirviella.com/noticias/wp-content/uploads/2019/11/decoracion_mesa_restaurante-600x321.jpg" class="card-img-top" alt="Mesa 1">
+          <div class="card-body">
+            <h5 class="card-title">Mesa 1</h5>
+            <p class="card-text">$5</p>
+            <button id="mesa1" class="btn btn-primary" onclick="mostrarFormularioMesa(1)">Reservar</button>
+          </div>
+        </div>
+      </div>
+      <!-- Repite este bloque de código para las 4 mesas restantes de esta fila -->
+      <div class="col-md-4">
+        <div class="card mesa-card">
+          <img src="https://sirviella.com/noticias/wp-content/uploads/2019/11/decoracion_mesa_restaurante-600x321.jpg" class="card-img-top" alt="Mesa 2">
+          <div class="card-body">
+            <h5 class="card-title">Mesa 2</h5>
+            <p class="card-text"> $5</p>
+            <button id="mesa2" class="btn btn-primary" onclick="mostrarFormularioMesa(2)">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="col-md-4">
+        <div class="card mesa-card">
+          <img src="https://sirviella.com/noticias/wp-content/uploads/2019/11/decoracion_mesa_restaurante-600x321.jpg" class="card-img-top" alt="Mesa 3">
+          <div class="card-body">
+            <h5 class="card-title">Mesa 3</h5>
+            <p class="card-text">$5</p>
+            <button id="mesa3" class="btn btn-primary" onclick="mostrarFormularioMesa(3)">Reservar</button>
+          </div>
+        </div>
+      </div>
+      <!-- Tarjeta 4 -->
+      <div class="col-md-4">
+        <div class="card mesa-card">
+          <img src="https://sirviella.com/noticias/wp-content/uploads/2019/11/decoracion_mesa_restaurante-600x321.jpg" class="card-img-top" alt="Mesa 4">
+          <div class="card-body">
+            <h5 class="card-title">Mesa 4</h5>
+            <p class="card-text">$5</p>
+            <button id="mesa4" class="btn btn-primary" onclick="mostrarFormularioMesa(4)">Reservar</button>
+          </div>
+        </div>
+      </div>
+      <!-- Tarjeta 5 -->
+      <div class="col-md-4">
+        <div class="card mesa-card">
+          <img src="https://sirviella.com/noticias/wp-content/uploads/2019/11/decoracion_mesa_restaurante-600x321.jpg" class="card-img-top" alt="Mesa 5">
+          <div class="card-body">
+            <h5 class="card-title">Mesa 5</h5>
+            <p class="card-text">$5</p>
+            <button id="mesa5" class="btn btn-primary" onclick="mostrarFormularioMesa(5)">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="col-md-4">
+        <div class="card mesa-card">
+          <img src="https://sirviella.com/noticias/wp-content/uploads/2019/11/decoracion_mesa_restaurante-600x321.jpg" class="card-img-top" alt="Mesa 6">
+          <div class="card-body">
+            <h5 class="card-title">Mesa 6</h5>
+            <p class="card-text">$5</p>
+            <button id="mesa6" class="btn btn-primary" onclick="mostrarFormularioMesa(6)">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+      <h2>.........................Mesas de la primera planta (LADO B)............................................                                                             </h2>
+
+      
+
+      <!-- Tarjeta 7 -->
+      <br>
+      <br>
+      <br>
+<div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://www.mobydecmuebles.com/wp-content/uploads/2019/08/distribucion-mesas-1170x657.jpg" class="card-img-top" alt="Mesa 7">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 7</h5>
+        <p class="card-text">$6</p>
+        <button id="mesa7" class="btn btn-primary" onclick="mostrarFormularioMesa(7)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 8 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://www.mobydecmuebles.com/wp-content/uploads/2019/08/distribucion-mesas-1170x657.jpg" class="card-img-top" alt="Mesa 8">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 8</h5>
+        <p class="card-text">$6</p>
+        <button id="mesa8" class="btn btn-primary" onclick="mostrarFormularioMesa(8)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 9 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://www.mobydecmuebles.com/wp-content/uploads/2019/08/distribucion-mesas-1170x657.jpg" class="card-img-top" alt="Mesa 9">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 9</h5>
+        <p class="card-text">$6</p>
+        <button id="mesa9" class="btn btn-primary" onclick="mostrarFormularioMesa(9)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 10 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://www.mobydecmuebles.com/wp-content/uploads/2019/08/distribucion-mesas-1170x657.jpg" class="card-img-top" alt="Mesa 10">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 10</h5>
+        <p class="card-text">$6</p>
+        <button id="mesa10" class="btn btn-primary" onclick="mostrarFormularioMesa(10)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 11 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://www.mobydecmuebles.com/wp-content/uploads/2019/08/distribucion-mesas-1170x657.jpg" class="card-img-top" alt="Mesa 11">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 11</h5>
+        <p class="card-text">$6</p>
+        <button id="mesa11" class="btn btn-primary" onclick="mostrarFormularioMesa(11)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 12 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://www.mobydecmuebles.com/wp-content/uploads/2019/08/distribucion-mesas-1170x657.jpg" class="card-img-top" alt="Mesa 12">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 12</h5>
+        <p class="card-text">$6</p>
+        <button id="mesa12" class="btn btn-primary" onclick="mostrarFormularioMesa(12)">Reservar</button>
+      </div>
+    </div>
+  </div>
+
+
+  <h2>.....................Mesas de la segunda planta (ZONA PLATINUM)............................                                                           </h2>
+  <br>
+  <br>
+  <!-- Tarjeta 13 -->
+<div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://thumbs.dreamstime.com/b/espectacular-interior-de-restaurante-contempor%C3%A1neo-vest%C3%ADbulo-principal-con-mesas-madera-y-sillas-terciopelo-del-230191786.jpg" class="card-img-top" alt="Mesa 13">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 13</h5>
+        <p class="card-text">$12</p>
+        <button id="mesa13" class="btn btn-primary" onclick="mostrarFormularioMesa(13)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 14 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://thumbs.dreamstime.com/b/espectacular-interior-de-restaurante-contempor%C3%A1neo-vest%C3%ADbulo-principal-con-mesas-madera-y-sillas-terciopelo-del-230191786.jpg" class="card-img-top" alt="Mesa 14">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 14</h5>
+        <p class="card-text">$12.</p>
+        <button id="mesa14" class="btn btn-primary" onclick="mostrarFormularioMesa(14)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 15 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://thumbs.dreamstime.com/b/espectacular-interior-de-restaurante-contempor%C3%A1neo-vest%C3%ADbulo-principal-con-mesas-madera-y-sillas-terciopelo-del-230191786.jpg" class="card-img-top" alt="Mesa 15">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 15</h5>
+        <p class="card-text">$12</p>
+        <button id="mesa15" class="btn btn-primary" onclick="mostrarFormularioMesa(15)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 16 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://thumbs.dreamstime.com/b/espectacular-interior-de-restaurante-contempor%C3%A1neo-vest%C3%ADbulo-principal-con-mesas-madera-y-sillas-terciopelo-del-230191786.jpg" class="card-img-top" alt="Mesa 16">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 16</h5>
+        <p class="card-text">$12</p>
+        <button id="mesa16" class="btn btn-primary" onclick="mostrarFormularioMesa(16)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 17 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://thumbs.dreamstime.com/b/espectacular-interior-de-restaurante-contempor%C3%A1neo-vest%C3%ADbulo-principal-con-mesas-madera-y-sillas-terciopelo-del-230191786.jpg" class="card-img-top" alt="Mesa 17">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 17</h5>
+        <p class="card-text">$12</p>
+        <button id="mesa17" class="btn btn-primary" onclick="mostrarFormularioMesa(17)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 18 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://thumbs.dreamstime.com/b/espectacular-interior-de-restaurante-contempor%C3%A1neo-vest%C3%ADbulo-principal-con-mesas-madera-y-sillas-terciopelo-del-230191786.jpg" class="card-img-top" alt="Mesa 18">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 18</h5>
+        <p class="card-text">$12</p>
+        <button id="mesa18" class="btn btn-primary" onclick="mostrarFormularioMesa(18)">Reservar</button>
+      </div>
+    </div>
+  </div>
+
+
+  <h2>.........................Mesas tercera planta (ZONA VIP)............................................                                                             </h2>
+
+
+  <!-- Tarjeta 19 -->
+<div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://spainclubpromoter.com/wp-content/uploads/2022/08/VIP-PARTY-MYA-servicio-de-botellas.jpg" class="card-img-top" alt="Mesa 19">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 19</h5>
+        <p class="card-text">$20</p>
+        <button id="mesa19" class="btn btn-primary" onclick="mostrarFormularioMesa(19)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 20 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://spainclubpromoter.com/wp-content/uploads/2022/08/VIP-PARTY-MYA-servicio-de-botellas.jpg" class="card-img-top" alt="Mesa 20">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 20</h5>
+        <p class="card-text">$20</p>
+        <button id="mesa20" class="btn btn-primary" onclick="mostrarFormularioMesa(20)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 21 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://spainclubpromoter.com/wp-content/uploads/2022/08/VIP-PARTY-MYA-servicio-de-botellas.jpg" class="card-img-top" alt="Mesa 21">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 21</h5>
+        <p class="card-text">$20</p>
+        <button id="mesa21" class="btn btn-primary" onclick="mostrarFormularioMesa(21)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 22 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://spainclubpromoter.com/wp-content/uploads/2022/08/VIP-PARTY-MYA-servicio-de-botellas.jpg" class="card-img-top" alt="Mesa 22">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 22</h5>
+        <p class="card-text">$20</p>
+        <button id="mesa22" class="btn btn-primary" onclick="mostrarFormularioMesa(22)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 23 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://spainclubpromoter.com/wp-content/uploads/2022/08/VIP-PARTY-MYA-servicio-de-botellas.jpg" class="card-img-top" alt="Mesa 23">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 23</h5>
+        <p class="card-text">$20</p>
+        <button id="mesa23" class="btn btn-primary" onclick="mostrarFormularioMesa(23)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarjeta 24 -->
+  <div class="col-md-4">
+    <div class="card mesa-card">
+      <img src="https://spainclubpromoter.com/wp-content/uploads/2022/08/VIP-PARTY-MYA-servicio-de-botellas.jpg" class="card-img-top" alt="Mesa 24">
+      <div class="card-body">
+        <h5 class="card-title">Mesa 24</h5>
+        <p class="card-text">$20</p>
+        <button id="mesa24" class="btn btn-primary" onclick="mostrarFormularioMesa(24)">Reservar</button>
+      </div>
+    </div>
+  </div>
+  
+    </div>
+  </div>
+</div>
+
+<script>
+// Funciones JavaScript aquí...
+
+// Función para mostrar el formulario de reserva de mesa
+function mostrarFormularioMesa(numeroMesa) {
+  // Crear el formulario HTML
+  const formularioMesaHTML = `
+    <form id="reservaFormMesa">
+      <label for="numeroMesa">Número de Mesa:</label>
+      <input type="text" id="numeroMesa" name="numeroMesa" value="${numeroMesa}" readonly><br><br>
+      
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" name="fecha" required><br><br>
+      
+      <label for="hora">Hora:</label>
+      <input type="time" id="hora" name="hora" required><br><br>
+      
+      <!-- Otros campos que consideres importantes -->
+      
+      <button type="button" id="siguiente" disabled>Siguiente</button>
+    </form>
+  `;
+
+  // Mostrar la alerta con el formulario de reserva de mesa
+  const alerta = Swal.fire({
+    title: 'Reserva de Mesa',
+    html: formularioMesaHTML,
+    showCancelButton: true,
+    showConfirmButton: false,
+    cancelButtonText: 'Cancelar',
+    allowOutsideClick: false
+  });
+
+  // Obtener los elementos del formulario
+  const numeroMesaInput = document.getElementById('numeroMesa');
+  const fechaInput = document.getElementById('fecha');
+  const horaInput = document.getElementById('hora');
+  const siguienteBtn = document.getElementById('siguiente');
+
+  // Verificar si todos los campos están completos para habilitar el botón "Siguiente"
+  const verificarCampos = () => {
+    if (fechaInput.value && horaInput.value) {
+      siguienteBtn.disabled = false;
+    } else {
+      siguienteBtn.disabled = true;
+    }
+  };
+
+  // Escuchar cambios en los campos del formulario
+  fechaInput.addEventListener('input', verificarCampos);
+  horaInput.addEventListener('input', verificarCampos);
+
+  // Manejar el click del botón "Siguiente"
+  siguienteBtn.addEventListener('click', mostrarSegundoFormulario);
+}
+
+// Función para mostrar el segundo formulario
+function mostrarSegundoFormulario() {
+  // Crear el segundo formulario HTML
+  const segundoFormularioHTML = `
+    <form id="reservaFormDatos">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required><br><br>
+      
+      <label for="correo">Correo:</label>
+      <input type="email" id="correo" name="correo" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br><br>
+      
+      <label for="dui">DUI:</label>
+      <input type="text" id="dui" name="dui" required><br><br>
+      
+      <label for="tarjeta">Tarjeta de Crédito:</label>
+      <input type="text" id="tarjeta" name="tarjeta" required><br><br>
+      
+      <!-- Otros campos que consideres importantes -->
+      
+      <button type="button" id="reservarBtn" disabled onclick="realizarReserva()">Reservar</button>
+    </form>
+  `;
+
+  // Mostrar la alerta con el segundo formulario
+  const alerta = Swal.fire({
+    title: 'Información del Cliente',
+    html: segundoFormularioHTML,
+    showCancelButton: true,
+    showConfirmButton: false,
+    cancelButtonText: 'Cancelar',
+    allowOutsideClick: false
+  });
+
+  // Obtener los elementos del segundo formulario
+  const nombreInput = document.getElementById('nombre');
+  const correoInput = document.getElementById('correo');
+  const duiInput = document.getElementById('dui');
+  const tarjetaInput = document.getElementById('tarjeta');
+  const reservarBtn = document.getElementById('reservarBtn');
+
+  // Verificar si todos los campos del segundo formulario están completos para habilitar el botón "Reservar"
+  const verificarCamposSegundoFormulario = () => {
+    if (nombreInput.value && correoInput.value && duiInput.value && tarjetaInput.value) {
+      reservarBtn.disabled = false;
+    } else {
+      reservarBtn.disabled = true;
+    }
+  };
+
+  // Escuchar cambios en los campos del segundo formulario
+  nombreInput.addEventListener('input', verificarCamposSegundoFormulario);
+  correoInput.addEventListener('input', verificarCamposSegundoFormulario);
+  duiInput.addEventListener('input', verificarCamposSegundoFormulario);
+  tarjetaInput.addEventListener('input', verificarCamposSegundoFormulario);
+}
+
+// Función para realizar la reserva
+function realizarReserva() {
+  const formData = new FormData(document.getElementById('reservaFormDatos'));
+  const formDataJSON = Object.fromEntries(formData.entries());
+  console.log('Información del cliente:', formDataJSON);
+  // Aquí podrías agregar el código para enviar los datos del cliente y de la reserva a tu servidor
+
+  // Mostrar alerta de reserva realizada
+  Swal.fire('Reserva Realizada', '¡Su reserva ha sido realizada con éxito!', 'success');
+}
+
+// Función para seleccionar la sucursal
+function seleccionarSucursal(numeroSucursal) {
+  document.getElementById('sucursalTitulo').innerText = `Sucursal ${numeroSucursal}`;
+  // Puedes agregar aquí cualquier lógica adicional que desees al cambiar de sucursal
+}
+</script>
+
+</body>
+</html>
