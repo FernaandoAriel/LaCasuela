@@ -22,7 +22,7 @@ body {
 .imagen {
     max-width: 100%;
     height: auto;
-    opacity: 1; /* Ajusta la opacidad según tus necesidades */
+    opacity: 1; 
 }
 
 .header::after {
@@ -31,7 +31,7 @@ body {
     bottom: -10px;
     left: 0;
     width: 100%;
-    height: 200px; /* Ajusta la altura del degradado según tus necesidades */
+    height: 200px; 
     background: linear-gradient(to bottom, rgba(240, 240, 240, 0) 10%, rgba(20, 20, 20, 1) 100%);
 }
 
@@ -49,7 +49,6 @@ body {
 }
 
 .logo {
-    line-height: 4  0px;
     margin-left: 100px;
 }
 
@@ -85,24 +84,38 @@ body {
 
 
 
-.container{
+.container {
     margin: 30px 0px;
     background-color: rgb(231, 231, 231);
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center; 
     color: rgb(41, 41, 41);
     padding: 0px 20px 20px 20px;
 }
 
-.container img{
+.titulo {
+    margin-top: 20px;
+    order: 1;
+}
+
+.contenido1 {
+    order: 2; 
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%;
+}
+
+.container img {
     max-width: 30%;
     height: auto;
 }
 
 .container p {
     margin-bottom: 10px;
-
+    flex: 1;
 }
 
 .grid-item {
@@ -133,6 +146,33 @@ body {
     padding: 20px;
     grid-auto-flow: dense;
   }
+
+  .overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(44, 44, 44, 0.35); 
+    color: white; 
+    padding: 20px;
+    text-align: center;
+}
+
+.overlay h2 {
+    margin-bottom: 10px;
+}
+
+.overlay button {
+    padding: 10px;
+    background-color: #da0b0b; 
+    color: white; 
+    border: none;
+    cursor: pointer;
+}
   
   @media (min-width: 600px) {
     .wide {
@@ -150,24 +190,22 @@ body {
     display: flex;
     border-style:none;
     overflow: hidden;
-    max-width: 600px; /* Ajusta el ancho máximo según tus necesidades */
+    max-width: 600px; 
     margin: 20px auto;
 }
 
 .contenido {
-
     margin-left: 50px;
     flex: 1;
-    padding: 20px;
+    padding: 10px;
 }
 
 .imagen2 {
     flex: 1;
-    background: url('https://cdnx.jumpseller.com/espesales/image/16285686/CLASE_A%CC%81RABE.png.png?1619905879') center/cover; /* Ajusta la imagen de fondo */
-    background-size: cover;
+    background: url('https://cdnx.jumpseller.com/espesales/image/16285686/CLASE_A%CC%81RABE.png.png?1619905879') center/cover; 
     background-position: center;    
     clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
-    min-width: 0; /* Evita que la imagen rompa el diseño */
+    min-width: 0; 
 }
 
 button {
