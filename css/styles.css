@@ -1,9 +1,6 @@
 * {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
-    line-height: 1.2;
 }
 
 body {
@@ -11,9 +8,7 @@ body {
     background: linear-gradient(to bottom, rgb(20, 20, 20, 1) 10%, rgba(20, 20, 20, 1) 100%);
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+
 }
 
 .header {
@@ -142,7 +137,17 @@ body {
     filter: opacity(0.9);
     transform: scale(1.04);
   }
+
+  .grid-item:hover p {
+    transform: scale(0.9);
+    transition: 0.4s;
+  }
   
+  .grid-item:hover h2 {
+    transform: scale(1.17);
+    transition: 0.5s;
+  }
+
   .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -222,6 +227,7 @@ button {
     background-color: #da0b0b;
     color: white;
     border: none;
+    border-radius: 20px;
     cursor: pointer;
 }
 
