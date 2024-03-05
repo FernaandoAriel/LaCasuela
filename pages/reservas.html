@@ -3,53 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reserva de Mesas</title>
+  <title>La Casuela | Reservas</title>
   <!-- Incluir SweetAlert2 CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
   <!-- Incluir SweetAlert2 JS -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Incluir Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/reservas.css">
 
-  <style>
-    /* Estilos adicionales para la barra lateral */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      background-color: #f8f9fa; /* Cambiar el color de fondo según tu preferencia */
-      padding: 20px;
-      overflow-y: auto; /* Habilitar el desplazamiento vertical si el contenido es más largo */
-    }
-
-    .navbar-nav .nav-link {
-      margin-bottom: 20px; /* Espacio entre los enlaces en la barra lateral */
-    }
-
-    /* Estilos para los botones de las mesas */
-    .mesa-buttons {
-      position: fixed;
-      top: 0;
-      right: 20px;
-      bottom: 0;
-      width: 1100px; /* Ancho fijo para las tarjetas de las mesas */
-      padding-top: 20px; /* Espacio superior para alinear con la barra lateral */
-      overflow-y: auto; /* Habilitar el desplazamiento vertical si hay muchas mesas */
-    }
-
-    .mesa-card {
-      margin-bottom: 10px;
-    }
-
-    .mesa-card .card-img-top {
-    height: 200px; /* Cambia este valor según tus preferencias */
-    object-fit: cover; /* Ajustar la imagen para llenar el contenedor sin deformarla */
-
-  }
-  </style>
 </head>
 <body>
+  <header class="header">
+    <nav class="nav">
+        <a href="#" class="logo nav-link"><img src="imgs/Logo.png" height="100"></a>
+        <ul class="nav-menu">
+            <li class="nav-menu-item"><a href="" class="nav-menu-link nav-link">Inicio</a></li>
+            <li class="nav-menu-item"><a href="" class="nav-menu-link nav-link">Reservas</a></li>
+            <li class="nav-menu-item"><a href="" class="nav-menu-link nav-link">Menu</a></li>
+            <li class="nav-menu-item"><a href="" class="nav-menu-link nav-link">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <img class="imagen" src="https://imagenes.20minutos.es/files/image_1920_1080/uploads/imagenes/2023/04/03/mesa-llena-de-comida-arabe.jpeg" alt="Imagen de Encabezado">
+
+</header>
+
 
 <!-- Contenido principal -->
 <div class="container-fluid">
@@ -389,6 +369,7 @@
     </div>
   </div>
 </div>
+
 
 <script>
 // Funciones JavaScript aquí...
