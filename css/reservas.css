@@ -24,8 +24,13 @@
     overflow-y: auto; /* Habilitar el desplazamiento vertical si hay muchas mesas */
   }
 
+  .nav-link{
+    
+  }
+
   .mesa-card {
     margin-bottom: 10px;
+
   }
 
   .mesa-card .card-img-top {
