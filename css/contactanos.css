@@ -17,6 +17,10 @@ p, #Enviarbtn {
     font-size: 1.2rem; 
 }
 
+.section-title{
+    margin-top: 150px;
+}
+
 input {
     border-radius: 10px; 
     width: 100%;
@@ -86,17 +90,20 @@ input::placeholder {
 
 *{
     margin: 0;
-    padding: 0;
+
     box-sizing: border-box;
-    font-family: sans-serif;
-    line-height: 1.2;
+
 }
 
 body{
     display: flex;
+    padding: 0;
     flex-direction: column;
     height: 100vh;
-    background-color: #bbbbbb;
+    background-color: #bbbbbb;    
+    font-family: sans-serif;
+    line-height: 1.2;
+    z-index: -1;
     
 }
 
@@ -189,37 +196,22 @@ ul li a:hover{
     }
 }
 
+/*esto es la imagen de encabezado*/
+
 .header {
-    background-color: #464646;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 101.5vh;
-    overflow: hidden;
+    height: 115vh;
 }
-
-.imagen {
-    max-width: 100%;
-    height: auto;
-    opacity: 1; 
-}
-
-.header::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 200px; 
-    background: linear-gradient(to bottom, rgba(240, 240, 240, 0) 10%, rgba(20, 20, 20, 1) 100%);
-}
+/*esto es la barra de navegacion*/
 
 .nav{
+    font-family: poppins; 
     background-color: rgb(238, 238, 238);
-    display: flex;
+    display:flex;
     justify-content: space-between;
     padding: 10px;
-
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 }
 
 .nav-link {
@@ -255,8 +247,89 @@ ul li a:hover{
     color: rgb(0, 0, 0);
 }
 
-.nav-menu-item:not(:last-child) {
+.nav-toggle {
+    color: white;
+    background: none;
+    border: none;
+    font-size: 30px;
+    padding: 0 20px;
+    line-height: 60px;
+    cursor: pointer;
+
+    display: none;
+}
+
+/*esto es el responsive de la barra de navegacion y cosas extra*/
+
+@media (max-width:915px){
     
-    border-right: 3px solid red;
-    height: 95px;
+    .header {
+        height: 70.5vh;
+    }
+    
+    .imagen {
+        margin-top: 100px;
+        max-width: 100%;
+        height: 50.5vh;
+        opacity: 1; 
+        object-fit:cover;
+    }
+    
+    .logo {
+        margin-left: 10px;
+    }
+    
+    .nav-menu{
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        background-color: #2d2e33;
+        position: fixed;
+        left: 0;
+        top: 127px;
+        width: 100%;
+        padding: 20px 0;
+        
+        height: calc(100% - 127px);
+        overflow-y: auto;
+
+        left: 100%;
+        transition: 0.3s;
+    }
+    
+    .nav-link {
+        color: rgb(255, 255, 255);
+    }
+
+    .nav-menu-item{
+        line-height: 80px;
+        text-transform: uppercase;  
+    }
+    
+    .nav-menu-link:hover,
+    .nav-menu-link_active {
+        background: none;
+        color:#4d4f55
+    }
+    
+    .nav-toggle {
+        display: block;
+    }
+    .nav-toggle:hover {
+        
+        background: none;
+    }
+
+    .nav-menu_visible{
+        left: 0;
+    }
+
+    .container img {
+        display: none;
+    }
+
+    .titulo {
+        align-items: center;
+        
+    }
 }
