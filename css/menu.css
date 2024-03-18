@@ -64,13 +64,6 @@
     color: rgb(0, 0, 0);
 }
 
-.nav-menu-item:not(:last-child) {
-    
-    border-right: 3px solid red;
-    height: 95px;
-}
-
-
 .food {
     padding: 100px;
     text-align: center;
