@@ -1,74 +1,64 @@
-/* Estilos adicionales para la barra lateral */
-.sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #f8f9fa; /* Cambiar el color de fondo según tu preferencia */
-    padding: 20px;
-    overflow-y: auto; /* Habilitar el desplazamiento vertical si el contenido es más largo */
-  }
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
 
-  .navbar-nav .nav-link {
-    margin-bottom: 20px; /* Espacio entre los enlaces en la barra lateral */
-  }
-
-  /* Estilos para los botones de las mesas */
-  .mesa-buttons {
-    position: fixed;
-    top: 0;
-    right: 20px;
-    bottom: 0;
-    width: 1100px; /* Ancho fijo para las tarjetas de las mesas */
-    padding-top: 20px; /* Espacio superior para alinear con la barra lateral */
-    overflow-y: auto; /* Habilitar el desplazamiento vertical si hay muchas mesas */
-  }
-
-  .nav-link{
-    
-  }
-
-  .mesa-card {
-    margin-bottom: 10px;
-
-  }
-
-  .mesa-card .card-img-top {
-  height: 200px; /* Cambia este valor según tus preferencias */
-  object-fit: cover; /* Ajustar la imagen para llenar el contenedor sin deformarla */
+body {
+    font-family: 'Cinzel Decorative', sans-serif;
+    background-color:rgb(20, 20, 20);
+    margin: 0;
+    padding: 0;
 
 }
 
-.header {
-    background-color: #464646;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 101.5vh;
-    overflow: hidden;
-}
 
-.imagen {
-    max-width: 100%;
-    height: auto;
-    opacity: 1; 
-}
 
-.header::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 200px; 
-    background: linear-gradient(to bottom, rgba(240, 240, 240, 0) 10%, rgba(20, 20, 20, 1) 100%);
-}
 
-.nav{
+.nav {
     background-color: rgb(238, 238, 238);
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que la barra de navegación esté por encima de otros elementos */
+}
+
+/* Ajuste para el contenedor principal */
+
+
+
+
+
+/*esto es la imagen de encabezado*/
+
+.header {
+    height: 15vh;
+}
+
+
+.mesa-card {
+    margin-bottom: 20px; /* Ajusta el valor según el espacio que desees */
+}
+
+.col-md-4 {
+    margin-bottom: 20px; /* Ajusta el valor según el espacio que desees */
+}
+
+
+
+
+
+
+
+.nav{
+    background-color: rgb(238, 238, 238);
+    display:flex;
+    justify-content: space-between;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
 
 }
 
@@ -105,8 +95,206 @@
     color: rgb(0, 0, 0);
 }
 
-.nav-menu-item:not(:last-child) {
+.nav-toggle {
+    color: white;
+    background: none;
+    border: none;
+    font-size: 30px;
+    padding: 0 20px;
+    line-height: 60px;
+    cursor: pointer;
+
+    display: none;
+}
+
+/*esto es el responsive de la barra de navegacion y cosas extra*/
+
+@media (max-width:915px){
     
-    border-right: 3px solid red;
-    height: 95px;
+    .header {
+        height: 70.5vh;
+    }
+    
+    .imagen {
+        margin-top: 100px;
+        max-width: 100%;
+        height: 50.5vh;
+        opacity: 1; 
+        object-fit:cover;
+    }
+    
+    .logo {
+        margin-left: 10px;
+    }
+    
+    .nav-menu{
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        background-color: #2d2e33;
+        position: fixed;
+        left: 0;
+        top: 127px;
+        width: 100%;
+        padding: 20px 0;
+        
+        height: calc(100% - 127px);
+        overflow-y: auto;
+
+        left: 100%;
+        transition: 0.3s;
+    }
+    
+    .nav-link {
+        color: rgb(255, 255, 255);
+    }
+
+    .nav-menu-item{
+        line-height: 80px;
+        text-transform: uppercase;  
+    }
+    
+    .nav-menu-link:hover,
+    .nav-menu-link_active {
+        background: none;
+        color:#4d4f55
+    }
+    
+    .nav-toggle {
+        display: block;
+    }
+    .nav-toggle:hover {
+        
+        background: none;
+    }
+
+    .nav-menu_visible{
+        left: 0;
+    }
+
+    .container img {
+        display: none;
+    }
+
+    .titulo {
+        align-items: center;
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*pie de pagina*/
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+    background-color: #2d2e33;
+    padding: 60px 10%;
+}
+
+ul{
+    list-style: none;
+}
+
+.footer-col{
+    width: 25%;
+}
+
+.footer-col h4{
+    position: relative;
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 22px;
+    color: #f1bc0d;
+    text-transform: capitalize;
+}
+
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    background-color: #27c0ac;
+    height: 2px;
+    width: 40px;
+}
+
+ul li:not(:last-child){
+    margin-bottom: 8px;
+}
+
+/*diseño de las listas*/
+
+ul li a{
+    display: block;
+    font-size: 19px;
+    text-transform: capitalize;
+    color: #bdb6b6;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+ul li a:hover{
+    color: white;
+    padding-left: 2px;
+}
+
+.links a{
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    color: white;
+    background-color: rgba(40, 130, 214, 0.8);
+    margin: 0 8px 8px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover{
+    color: #4d4f55;
+    background-color: white;
+}
+
+/*esto es el responsive del footer*/
+
+@media(max-width: 740px){
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .footer-col h4::before{
+        all: unset;
+    }
+}
+
+@media(max-width: 555px){
+    .footer-col{
+        width: 100%;
+    }
 }
