@@ -12,7 +12,7 @@ body {
     background-color:rgb(20, 20, 20);
     margin: 0;
     padding: 0;
-
+    z-index: -1;
 }
 
 /*esto es la imagen de encabezado*/
@@ -37,6 +37,7 @@ body {
     padding: 10px;
     position: fixed;
     width: 100%;
+    z-index: 1000;
 }
 
 .nav-link {
